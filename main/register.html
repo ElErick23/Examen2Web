@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script>
+        if (window.location.href.includes('register.html'))
+            location.href = '.';
+    </script>
+</head>
+
+<body>
+    <h2>Registro de persona</h2>
+    <form method="post" action="dbActions.php">
+        <input name="action" value="CREATE" hidden/>
+        <label for="name">Nombre</label>
+        <input id="name" name="name"/>
+        <br>
+        <label for="email">Email</label>
+        <input id="email" name="email"/>
+        <br>
+        <input type="submit" value="Registrar" />
+    </form>
+</body>
+
+</html>

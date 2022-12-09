@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script>
+        function binaryOf(bits) {
+            let binary = "";
+            for (let i = 0; i < bits; i++)
+                binary += Math.floor(Math.random() * 2);
+            return binary
+        }
+
+        function regenerateCaptcha() {
+            binary = binaryOf(4);
+            document.getElementById("binary-input").value = binary;
+        }
+
+    </script>
+</head>
+
+<body onload="regenerateCaptcha()">
+    <h2>Registro de persona</h2>
+    <form method="post" action="register.php">
+        <label for="binary-input">Binario</label>
+        <input id="binary-input" name="bin" readonly/>
+        <label for="decimal-input">Decimal</label>
+        <input id="decimal-input" name="dec" type="number" />
+
+        <input type="submit" value="Validar"/>
+        <input type="button" value="Regenerar" onClick="regenerateCaptcha()"/>
+    </form>
+    <hr>
+    <h2>Lista de personas</h2>
+    <form method="post" action="dbActions.php">
+        <input name="action" value="READ" hidden/>
+        <input type="submit" value="Ver"/>
+    </form>
+    <hr>
+</body>
+
+</html>
